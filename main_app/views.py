@@ -6,6 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Auth
 from django.contrib.auth import login, authenticate
+from main_app.models import Profile
 from .forms import SignUpForm
 
 # Create your views here.
@@ -20,11 +21,12 @@ class SignUp(View):
 
     def post(self, request):
         form = SignUpForm(request.POST)
-        birth_date = request.POST.get('birth_date')
 
         if form.is_valid():
             user=form.save()
-            profile = Profile.objects.create(user=user, birth_day=birth_day)
+            birth_date = request.POST.get('birth_date')
+            
+            profile = Profile.objects.create(user=user, birth_date=birth_date)
             
             # Authenticate
             # username = form.

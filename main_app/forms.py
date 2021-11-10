@@ -10,6 +10,14 @@ class SignUpForm(UserCreationForm):
 
     birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
 
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     first_name = cleaned_data.get("first_name")
+    #     if len(first_name) > 3:
+    #         self.add_error('first_name', "too short")
+
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
+    
+    
