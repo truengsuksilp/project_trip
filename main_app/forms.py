@@ -16,6 +16,14 @@ class SignUpForm(UserCreationForm):
         first_name = cleaned_data.get("first_name")
         if len(first_name) < 3:
             self.add_error('first_name', "too short")
+            
+            # ValidationError Method doesn't work
+            # raise forms.ValidationError({'first_name', 'Validation: Too short'})
+
+            # Added to HTML 
+            #    {% for error in non_field_errors %}
+            #      <p style="color: purple">{{ error }}</p>
+            #    {% endfor %}
 
     class Meta:
         model = User

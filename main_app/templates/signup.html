@@ -11,6 +11,9 @@
         {% if field.help_text %}
           <small style="color: grey">{{ field.help_text }}</small>
         {% endif %}
+        {% for error in non_field_errors %}
+          <p style="color: purple">{{ error }}</p>
+        {% endfor %}
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>
         {% endfor %}
