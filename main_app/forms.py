@@ -5,19 +5,20 @@ from django.contrib.auth.models import User
 
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    # last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
 
-    birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
+    # birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
 
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     first_name = cleaned_data.get("first_name")
-    #     if len(first_name) > 3:
-    #         self.add_error('first_name', "too short")
+    # Call method on form itself
+    def clean(self):
+        cleaned_data = super().clean()
+        first_name = cleaned_data.get("first_name")
+        if len(first_name) < 3:
+            self.add_error('first_name', "too short")
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
+        fields = ('username', 'first_name', 'email', 'password1', 'password2', )
     
     
