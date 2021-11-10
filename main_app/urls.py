@@ -1,6 +1,11 @@
 from django.urls import path
-from .views import Home
+from .views import Home, SignUp
 
 urlpatterns = [
-    path('', Home.as_view(), name='home')
+    path('', Home.as_view(), name='home'),
+    
+    path('accounts/signup/', SignUp.as_view(), name='signup'),
 ]
+
+# Regex: r'^.../$'
+# Warning: Your URL pattern '^signup/$' has a route that contains '(?P<', begins with a '^', or ends with a '$'. This was likely an oversight when migrating to django.urls.path().
