@@ -1,10 +1,11 @@
 from django.urls import path
 from django.shortcuts import redirect
-from .views import Home, SignUp
+from .views import Home, SignUp, Api
 
 urlpatterns = [
-    # path('', Home.as_view(), name='home'),
-    path('', lambda req: redirect('accounts/signup/'), name='home'),
+    path('', Home.as_view(), name='home'),
+    path('api/', Api.as_view(), name='api'),
+    # path('', lambda req: redirect('accounts/signup/'), name='home'),
     path('accounts/signup/', SignUp.as_view(), name='signup'),
 ]
 

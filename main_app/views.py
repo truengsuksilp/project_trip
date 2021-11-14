@@ -13,6 +13,9 @@ from .forms import SignUpForm
 class Home(TemplateView):
     template_name = 'home.html'
 
+class Api(View):
+    pass
+
 class SignUp(View):
     def get(self, request):
         form = SignUpForm()
