@@ -24,10 +24,11 @@ class SignUp(View):
 
         if form.is_valid():
             user=form.save()
-            birth_date = request.POST.get('birth_date')
+            # birth_date = request.POST.get('birth_date')
+            # profile = Profile.objects.create(user=user, birth_date=birth_date)
             
-            profile = Profile.objects.create(user=user, birth_date=birth_date)
-            
+            profile = Profile.objects.create(user=user)
+
             # Authenticate
             # username = form.
             # cleaned_data.get('username')
