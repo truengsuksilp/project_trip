@@ -9,4 +9,4 @@ class Profile(Model):
     user = OneToOneField(User, on_delete=CASCADE)
     bio = TextField(max_length=500)
     location = CharField(max_length=30)
-    birth_date = DateField()
+    # birth_date = DateField()
