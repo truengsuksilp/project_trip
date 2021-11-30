@@ -44,15 +44,15 @@ INSTALLED_APPS = [
     'main_app',
     'sass_processor',
     'crispy_forms',
-    # 'rest_framework',
+    'rest_framework',
 ]
 
 # Read-only for unauthenticated users
-# REST_FRAMEWORK = {
-#    'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-#     ] 
-# }
+REST_FRAMEWORK = {
+   'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ] 
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
