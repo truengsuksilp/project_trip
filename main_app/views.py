@@ -17,7 +17,7 @@ class SignUp(View):
     def get(self, request):
         form = SignUpForm()
         context = {'form': form}
-        return render(request, 'signup.html', context)
+        return render(request, 'signup_crispy.html', context)
 
     def post(self, request):
         form = SignUpForm(request.POST)
